@@ -12,8 +12,9 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello World</h1>');
+    res.render('landing');
 });
+
 
 const ADDRESS = 'localhost';
 const PORT = 3000;
