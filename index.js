@@ -1,9 +1,13 @@
 const express = require('express');
 const app = express();
 const logger = require('morgan');
+const path = require('path');
 
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
+
+
 
 app.get('/', (req, res) => {
     res.send('<h1>Hello World</h1>');
