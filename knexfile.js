@@ -5,7 +5,14 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      filename: './dev.sqlite3'
+      database: 'cluckr_basics',
+    },
+    migrations: {
+      tableName: 'migrations',
+      directory: './db/migrations'
+    },
+    seeds: {
+      directory: './db/seeds'
     }
   },
 
