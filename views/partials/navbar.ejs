@@ -1,15 +1,18 @@
 
 <main class="container">
     <div>
-        <a href="../clucks/new">
+        <a href="/clucks/new">
             <input type='submit' value='Cluck!' class='btn btn-outline-primary'>
         </a>
         <% if (username) { %> 
-            <a href="../sign_out">
+            <span class='navbar-text text-dark'>
+                👩‍💻 <%= username %>
+            </span>
+            <a href="/sign_out">
                 <input type='submit' value='Sign Out!' class='btn btn-outline-primary'>
             </a>
         <% } else { %> 
-            <a href="../sign_in">
+            <a href="./sign_in">
                 <input type='submit' value='Sign In' class='btn btn-outline-primary'>
             </a>
         <% } %> 

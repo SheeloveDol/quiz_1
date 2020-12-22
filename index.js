@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 
 app.get('/', (req, res) => {
-    res.render('clucks/index');
+    res.redirect('clucks');
 });
 
 // To create cookie after clicking sign_in
@@ -43,12 +43,12 @@ app.post('/sign_in', (req, res) => {
     const COOKIE_EXPIRE = 1000 * 60 * 60 * 24;
     const username = req.body.username;
     res.cookie('username', username, { maxAge: COOKIE_EXPIRE });
-    res.redirect('/create');
+    res.redirect('clucks/new');
 });
 
-app.post('/sign_out', (req, res) => {
+app.get('/sign_out', (req, res) => {
     res.clearCookie('username');
-    res.redirect('/welcome');
+    res.redirect('sign_in');
 });
 
 app.get('/sign_in', (req, res) => {

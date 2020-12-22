@@ -19,8 +19,12 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/sign_in', (req, res) => {
+    res.redirect('../sign_in');
+})
+
 // To create cluck from create form and send info to database
-router.post('/new', (req, res) => {
+router.post('/', (req, res) => {
     knex('clucks')
         .insert({
             username: req.cookies.username,
@@ -29,7 +33,7 @@ router.post('/new', (req, res) => {
         })
         .returning('*')
         .then(cluck => {
-            res.send(cluck);
+            res.redirect('/');
         });
 });
 
