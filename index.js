@@ -4,6 +4,11 @@ const logger = require('morgan');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
+// const knex = require('./db/client');
+
+
+
+
 
 app.set('view engine', 'ejs');
 
@@ -30,9 +35,10 @@ app.use((req, res, next) => {
 
 
 app.get('/', (req, res) => {
-    res.render('landing');
+    res.render('clucks/index');
 });
 
+// To create cookie after clicking sign_in
 app.post('/sign_in', (req, res) => {
     const COOKIE_EXPIRE = 1000 * 60 * 60 * 24;
     const username = req.body.username;
@@ -40,9 +46,27 @@ app.post('/sign_in', (req, res) => {
     res.redirect('/create');
 });
 
-app.get('/create', (req, res) => {
-    res.render('create');
+app.post('/sign_out', (req, res) => {
+    res.clearCookie('username');
+    res.redirect('/welcome');
 });
+
+app.get('/sign_in', (req, res) => {
+    res.render('sign_in')
+})
+
+
+// app.get('/clucks/new', (req, res) => {
+//     res.render('/clucks/new');
+// });
+
+const cluckRouter = require('./routes/clucks');
+app.use('/clucks', cluckRouter);
+// const knex = require('./db/client');
+
+
+
+
 
 const ADDRESS = 'localhost';
 const PORT = 3000;
