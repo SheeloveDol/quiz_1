@@ -1,0 +1,13 @@
+<%- include('../partials/header') %> 
+<div>
+    <% for (let cluck of clucks) { %>
+      <div class='card mb-4'>
+        <div class='card-body'>
+          <a href='/clucks/<%= cluck.id %>'>
+            <h5 class='card-title'><%= cluck.username %></h5>
+          </a>
+          <p class='card-text'><%= cluck.content %></p>
+        </div>
+      </div>
+    <% } %>
+  </div>

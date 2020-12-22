@@ -1,0 +1,22 @@
+<%- include('../partials/header') %> 
+    <main class="container">
+        <form action='/clucks' method='POST'>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="content" placeholder="Whatchoo cluckin' 'bout?" rows="5"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="imager_url" class="form-label">Image Url</label>
+                <input type="url" class="form-control" id="exampleFormControlInput1"  name ="image_url" placeholder="https://imgur.com/qM6KaEy.gifv">
+            </div>
+            <% if (username) { %> 
+            <div>
+                <input type='submit' value='Cluck!' class='btn btn-outline-success'>
+            </div>
+            <% } else { %> 
+                <h3 class="bg-primary">You must be logged-in to cluck!</h3>
+            <% } %> 
+        </form>
+    </main>
+</body>
+</html>
